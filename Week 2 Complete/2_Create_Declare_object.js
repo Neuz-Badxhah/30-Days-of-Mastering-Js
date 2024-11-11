@@ -87,8 +87,8 @@ for (let key in people) {
 }
 
 //object key
-Object.keys(people).forEach((people) => {
-  console.log("Using Object key", keys + " : " + people[keys]);
+Object.keys(people).forEach((key) => {
+  console.log("Using Object key", key + " : " + people[key]);
 });
 
 //object values
@@ -96,4 +96,15 @@ const faculty = { name: "Coder", age: 20, faculty: "Computer Science" };
 
 Object.values(faculty).forEach((values) => {
   console.log("Using Object Values", values);
+});
+
+//object entries
+const studentss = {
+  name: "Learner",
+  age: 21,
+  faculty: "Computer-Science",
+};
+
+Object.entries(studentss).forEach(([key, values]) => {
+  console.log("Using Object Entries", key + " : " + values);
 });
