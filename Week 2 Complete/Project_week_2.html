@@ -1,0 +1,102 @@
+<!-- Dynamic feedback form -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic feedback form</title>
+  <style>
+    .error {
+      color: red
+    }
+
+    .valid {
+      color: green
+    }
+  </style>
+</head>
+
+<body>
+  <div id="content">
+
+    <form action="#" id="userform">
+      <label for="name">User Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name">
+      <small id="namefeedback" class="error"></small>
+      <br><br>
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" placeholder="example@gmail.com">
+      <small id="emailfeedback" class="error"></small>
+      <br><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+</body>
+
+
+<script>
+  const dynamic = document.getElementById("userform").addEventListener("submit", (e) => {
+    e.preventDefault();
+    validForm();
+  })
+
+  const validEmail = ["gmail.com", "yahoo.com", "outlook.com", "hotmail.com"]
+  const errorMessage = {
+    emptyName: "Enter your name",
+    emptyEmail: "Enter your email",
+    emailInvalid: "Email is invalid or domain isn't support email",
+    nameShort: "Name must be atleast 3 characters long",
+  }
+
+  function validForm() {
+    const name = document.getElementById("name")
+    const email = document.getElementById("email")
+    const namefeedback = document.getElementById("namefeedback")
+    const emailfeedback = document.getElementById("emailfeedback")
+
+    let isValid = true
+
+    //valid name
+    if (name.value.trim() == "") {
+      namefeedback.textContent = errorMessage.emptyName
+      namefeedback.className = "error"
+      isValid = false
+    } else if (name.value.trim() === length < 3) {
+      namefeedback.textContent = errorMessage.nameShort
+      namefeedback.className = "error"
+      isValid = false
+    }
+    else {
+      namefeedback.textContent = "Name look good"
+      namefeedback.className = "valid"
+    }
+
+    //valid email
+    const emailvalue = email.value.trim()
+    const emailDomain = emailvalue.split("@")[1]
+
+    if (emailvalue == "") {
+      emailfeedback.textContent = errorMessage.emptyEmail
+      emailfeedback.className = "error"
+      isValid = false
+    } else if (!validEmail.includes(emailDomain)) {
+      emailfeedback.textContent = errorMessage.emailInvalid
+      isValid = false
+    }
+    else {
+      emailfeedback.textContent = "Email look good"
+      emailfeedback.className = "valid"
+    }
+
+    if (isValid) {
+      console.log("Congratulation your form is submited")
+    } else {
+      console.log("Please fill the form correctly")
+    }
+  }
+
+</script>
+
+</html>
