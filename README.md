@@ -1,3 +1,4 @@
+## Please note: This is an ongoing process. More updates and improvements are on the way!
 # JavaScript Mastery in 30 Days
 
 ## Week 1: JavaScript Basics
