@@ -33,5 +33,46 @@
     <p>This is form html to console (js) using getElementByTagname</p>
 </div>
 <script>
-    
+    const bytag = document.getElementsByTagName("p")
+    console.log(bytag)
+</script>
+
+<!-- getElementById in js to html(webPage) -->
+<div id="people"></div>
+<script>
+    const people = document.getElementById("people").innerHTML = "<p>This is form console to webpage by Id</p>"
+</script>
+
+<!-- getElementByclass in js to html(webPage) -->
+
+<div class="student"></div>
+<script>
+    const student = document.getElementsByClassName("student")[0].innerHTML = "<p>This is form console to webpage by class</p>"
+</script>
+
+<!-- using query selector -->
+<script>
+    const name = document.querySelector(".student");
+    name.innerHTML = "<p>This is form console to webpage by querySelector</p> <p>This is form console to webpage by class</p>"
+</script>
+
+<!-- using textcontent -->
+<!-- getElementById in js to html(webPage) -->
+<div id="std"></div>
+<script>
+    const std = document.getElementById("people").textContent = "This is form console to webpage by Id in text content"
+</script>
+
+<!-- using setAttribute() -->
+<div><img class="teach" src="image.jpeg" alt="Image Here"></div>
+<script>
+    const student1 = document.getElementsByClassName("teach")[0].setAttribute("src", "new image here")
+</script>
+
+<!-- create new element and append child element -->
+<div id="new"></div>
+<script>
+    const newElement = document.createElement("h1")
+    newElement.textContent = "This is new element created in js and appended to webpage"
+    document.getElementById("new").appendChild(newElement)
 </script>
