@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Text content and style</title>
+</head>
+
+<body>
+    <div class="container">Original Text</div>
+    <button onclick="changetext()">Click me to change text</button>
+    <button onclick="changestyle()">Click me to change text style</button>
+
+    <!-- using innterHTML -->
+    <div id="contain">Here is the content before update</div>
+    <button onclick="updatecontent()">Click me to update content</button>
+</body>
+
+<script>
+    function changetext() {
+        const changetext = document.getElementsByClassName("container")
+        changetext[0].textContent = "This is new content"
+    }
+    function changestyle() {
+        const changestyle = document.getElementsByClassName("container")
+        changestyle[0].style.color = "blue"
+        changestyle[0].style.fontSize = "40px"
+        changestyle[0].style.weight = "bold"
+    }
+
+    function updatecontent() {
+        const updatecontent = document.getElementById("contain")
+        updatecontent.innerHTML = "<p>This is the content after update</p>"
+
+        //style
+        updatecontent.style.color = "Red"
+        updatecontent.style.fontSize = "30px"
+
+    }
+</script>
+
+</html>
