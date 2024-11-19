@@ -10,7 +10,7 @@ function greeting(name) {
 
 setTimeout(greeting, 2000, "Coders");
 
-// setInterval basic Example
+//setInterval basic Example
 setInterval(() => {
   console.log("Repeat..............");
 }, 2000);
@@ -21,3 +21,12 @@ function repeat(something) {
 }
 //setInterval using parameter
 setInterval(repeat, 100, "Learn More.");
+//clearinterval
+const interval = setInterval(() => {
+  for (let index = 0; index < 10; index++) {
+    console.log("Hello coders", index);
+    if (index == 8) {
+      clearInterval(interval);
+    }
+  }
+}, 1000);
