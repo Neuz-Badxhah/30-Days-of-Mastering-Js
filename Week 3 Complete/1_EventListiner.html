@@ -1,0 +1,43 @@
+<!--  
+Syntax:
+
+    element.addEventListener(event, function, useCapture);
+    
+    Parameters:
+        event: Type of event (e.g., 'click', 'mouseover').
+        function: The function to execute when the event occurs.
+        useCapture (optional): Boolean, true for capturing phase, false for bubbling (default).
+-->
+
+
+<!-- Basic Event Listner Example -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listner</title>
+</head>
+
+<body>
+    <div id="btn"> <button type="button">Click me</button></div>
+</body>
+
+<script>
+    const button = document.getElementById("btn")
+    function click() {
+        button.textContent = "Button clicksuccessfully"
+    }
+    //add event listner
+    button.addEventListener('click', click);
+
+    //arrow function
+    const btn = document.getElementById("btn");
+    btn.addEventListener('click', () => { console.log("Clicked") })
+
+    //remove event listner
+    button.removeEventListener('click', click);
+</script>
+
+</html>
