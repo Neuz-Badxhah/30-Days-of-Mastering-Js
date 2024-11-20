@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance DOM</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    // Create New Element
+    let newElement = document.createElement("div");
+    newElement.textContent = "This content is created dynamically";
+    newElement.id = "myId";
+    newElement.classList = "myClass";
+    document.body.appendChild(newElement);
+
+    let newdiv = document.createElement("div");
+    newdiv.innerHTML = "<p>This is form new div after creating new element</p>";
+    newdiv.id = "myId2";
+    newdiv.className = "myclass";
+    document.body.appendChild(newdiv);
+
+    let newdiv2 = document.createElement("div");
+    newdiv2.innerHTML = "<p>This is form new second div</p>";
+    newdiv2.id = "myId3";
+    newdiv2.className = "myclass";
+    document.body.appendChild(newdiv2);
+
+    // Appending child
+    const parent = document.getElementById("myId");
+    if (parent) {
+        const child = document.createElement("p");
+        child.textContent = "This is child content";
+        parent.appendChild(child);
+    } else {
+        console.error("Parent with ID 'myId' not found.");
+    }
+
+    // Removing child
+    const parent2 = document.getElementById("myId2");
+    if (parent2) {
+        const child2 = document.createElement("p");
+        child2.textContent = "This is second child content";
+        parent2.appendChild(child2);
+        parent2.removeChild(child2); // Removes child2
+    } else {
+        console.error("Parent with ID 'myId2' not found.");
+    }
+
+    // Alternative method
+    const parent3 = document.getElementById("myId3");
+    if (parent3) {
+        const child3 = document.createElement("p");
+        child3.textContent = "This is third child content";
+        parent3.appendChild(child3);
+
+        // Remove child3 instead of parent3
+        parent3.removeChild(child3);
+    } else {
+        console.error("Parent with ID 'myId3' not found.");
+    }
+
+    // Adding and modifying class with classList
+    const classlistElement = document.getElementById("myId2");
+
+    if (classlistElement) {
+        // Adding classes
+        classlistElement.classList.add('myClass2', 'another_class');
+
+        // Removing classes
+        classlistElement.classList.remove('myClass2');
+
+        // Toggling class
+        classlistElement.classList.toggle('another_class');
+
+        if (classlistElement.classList.contains("another_class")) {
+            console.log("Class exists");
+        }
+
+        // Replacing class
+        if (classlistElement.classList.contains('oldclass')) {
+            classlistElement.classList.replace('oldclass', 'newclass');
+        } else {
+            console.warn("'oldclass' does not exist on the element.");
+        }
+    }
+
+    // Combine element
+    let div = document.getElementById("btnid");
+    if (!div) {
+        div = document.createElement("div");
+        div.id = "btnid";
+        document.body.appendChild(div);
+    }
+
+    const butn = document.createElement("button");
+    butn.textContent = "Click Me";
+    butn.id = "btn";
+    div.appendChild(butn);
+
+</script>
+
+</html>

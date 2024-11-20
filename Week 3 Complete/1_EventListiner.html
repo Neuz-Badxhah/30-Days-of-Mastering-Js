@@ -22,6 +22,9 @@ Syntax:
 
 <body>
     <div id="btn"> <button type="button">Click me</button></div>
+
+    <div id="btn1"><button>Click</button></div>
+    <div id="inputfield"><input type="text"></div>
 </body>
 
 <script>
@@ -38,6 +41,32 @@ Syntax:
 
     //remove event listner
     button.removeEventListener('click', click);
+
+    const btn1 = document.getElementById('btn1').querySelector('button');
+    const inputfield = document.getElementById('inputfield').querySelector('input')
+
+    function buttonanimation() {
+        btn1.animate([
+            {
+                transform: 'scale(1)', background: 'gray',
+                transform: 'scale(2)', background: "black",
+                transform: 'scale(1)', background: 'blue',
+            }
+        ], {
+            duration: 1000,
+            iterations: 3
+        })
+    }
+
+    btn.addEventListener('click', () => {
+        buttonanimation()
+        alert("Button Clicked")
+    })
+
+
+    function inputevent() {
+        inputfield.autofocus()
+    }
 </script>
 
 </html>
