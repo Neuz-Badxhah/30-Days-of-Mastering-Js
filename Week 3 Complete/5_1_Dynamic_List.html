@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List</title>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Dynamic List</h2>
+        <ul id="myList"></ul>
+        <button id="myButton">Add Item</button>
+    </div>
+</body>
+
+<script>
+    const list = document.getElementById('myList')
+    const button = document.getElementById('myButton')
+
+    button.addEventListener(('click'), () => {
+        const item = document.createElement('li')
+        item.textContent = `Item ${list.children.length + 1}`
+        item.classList.add("list_item")
+        list.appendChild(item)
+
+
+        item.addEventListener(('click'), () => {
+            item.remove()
+        })
+    })
+
+
+</script>
+
+</html>
