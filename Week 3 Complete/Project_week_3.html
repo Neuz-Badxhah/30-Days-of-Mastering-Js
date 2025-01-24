@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Displaying user data from a public API.
+    </title>
+</head>
+
+<body>
+    <h1>
+        Project using the Fetch API, and displaying user data from a public API.
+    </h1>
+    <button onclick="loadData()">Load DATA</button>
+    <div id="Data_Output"></div>
+
+    <script>
+        function loadData() {
+            fetch('https://randomuser.me/api/')
+                .then(response => response.json())
+                .catch(error => console.error('Error:' + error))
+                .then(data => {
+                    document.getElementById("Data_Output").innerHTML =
+                        `<h1>Name: ${data.results[0].name.first} ${data.results[0].name.last}</h1>
+                        <h2>Age: ${data.results[0].dob.age}</h2>
+                        <h2>Location: ${data.results[0].location.street.number} ${data.results
+                        [0].location.street.name}, ${data.results[0].location.city}, ${data.results[0].location.state}, ${data.results[0].location.country}</h2>
+                        <h2>Phone: ${data.results[0].phone}</h2>
+                        <h2>Email: ${data.results[0].email}</h2>
+                        <h2>Picture: <img src="${data.results[0].picture.large}" alt]]></h2>`;
+                })
+        }
+    </script>
+</body>
+
+</html>
