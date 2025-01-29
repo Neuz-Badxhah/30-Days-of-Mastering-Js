@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage and session Storage</title>
+</head>
+
+<body>
+
+    <h1>LocalStorage and session Storage</h1>
+    <h2>Local Storage</h2>
+    <div id="localStorage"></div>
+    <h2>Session Storage</h2>
+    <div id="sessionStorage"></div>
+
+    <script>
+        //local Storage
+        //setting the local storage
+        localStorage.setItem("Theme", "Dark");
+
+        //getting the local storage
+        console.log(localStorage.getItem("Theme"));
+        const local = document.getElementById("localStorage");
+        local.innerHTML = localStorage.getItem("Theme");
+
+        //removing the local storage
+        localStorage.removeItem("Theme");
+
+        localStorage.setItem("Theme", "Light");
+        console.log(localStorage.getItem("Theme"));
+        local.innerHTML = localStorage.getItem("Theme");
+
+
+
+        //Session Storage
+        sessionStorage.setItem("Theme", "Light");
+
+        //getting the session storage
+        console.log(sessionStorage.getItem("Theme"));
+        const session = document.getElementById("sessionStorage");
+        session.innerHTML = sessionStorage.getItem("Theme");
+
+        //removing the session storage
+        sessionStorage.removeItem("Theme");
+
+        sessionStorage.setItem("Theme", "Dark");
+        console.log(sessionStorage.getItem("Theme"));
+        session.innerHTML = sessionStorage.getItem("Theme");
+
+    </script>
+</body>
+
+</html>
