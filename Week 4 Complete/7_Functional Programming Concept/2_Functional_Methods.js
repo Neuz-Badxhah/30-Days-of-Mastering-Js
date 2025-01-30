@@ -37,5 +37,15 @@ const products = [
 const affordable = products.filter((product) => product.price < 500);
 console.log(affordable);
 
-
 //reduce
+const orders = [
+  { product: "Mobile", price: 500, quantity: 2 },
+  { product: "Watch", price: 200, quantity: 3 },
+  { product: "Headphone", price: 300, quantity: 4 },
+];
+
+const total = orders.reduce(
+  (acc, order) => acc + order.quantity * order.price,
+  0
+);
+console.log(total);
